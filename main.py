@@ -1,5 +1,8 @@
-from time import sleep
+from flask import Flask, request
 
-while True:
-    print("Hello world")
-    sleep(15)
+app = Flask(__name__)
+
+@app.route('/')
+def showmyip():
+    ip = request.remote_addr
+    return str(ip)
